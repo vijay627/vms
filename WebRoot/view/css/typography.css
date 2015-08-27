@@ -1,0 +1,204 @@
+BODY {
+	FONT-FAMILY: Helvetica, Arial, sans-serif; BACKGROUND: #fff; COLOR: #222; FONT-SIZE: 75%
+}
+H1 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H2 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H3 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H4 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H5 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H6 {
+	COLOR: #111; FONT-WEIGHT: normal
+}
+H1 {
+	LINE-HEIGHT: 1; MARGIN-BOTTOM: 0.5em; FONT-SIZE: 3em
+}
+H2 {
+	MARGIN-BOTTOM: 0.75em; FONT-SIZE: 2em
+}
+H3 {
+	LINE-HEIGHT: 1; MARGIN-BOTTOM: 1em; FONT-SIZE: 1.5em
+}
+H4 {
+	LINE-HEIGHT: 1.25; MARGIN-BOTTOM: 1.25em; HEIGHT: 1.25em; FONT-SIZE: 1.2em
+}
+H5 {
+	MARGIN-BOTTOM: 1.5em; FONT-SIZE: 1em; FONT-WEIGHT: bold
+}
+H6 {
+	FONT-SIZE: 1em; FONT-WEIGHT: bold
+}
+H1 IMG {
+	MARGIN: 0px
+}
+H2 IMG {
+	MARGIN: 0px
+}
+H3 IMG {
+	MARGIN: 0px
+}
+H4 IMG {
+	MARGIN: 0px
+}
+H5 IMG {
+	MARGIN: 0px
+}
+H6 IMG {
+	MARGIN: 0px
+}
+P {
+	MARGIN: 0px 0px 1.5em
+}
+DIV.articleimg {
+	FLOAT: left
+}
+DIV.right.articleimg {
+	FLOAT: right
+}
+A:focus {
+	COLOR: #000
+}
+A:hover {
+	COLOR: #000
+}
+A {
+	COLOR: #08c; TEXT-DECORATION: underline
+}
+STRONG {
+	FONT-WEIGHT: bold
+}
+EM {
+	FONT-STYLE: italic
+}
+DFN {
+	FONT-STYLE: italic
+}
+DFN {
+	FONT-WEIGHT: bold
+}
+SUP {
+	LINE-HEIGHT: 0
+}
+SUB {
+	LINE-HEIGHT: 0
+}
+ABBR {
+	BORDER-BOTTOM: #666 1px dotted
+}
+ACRONYM {
+	BORDER-BOTTOM: #666 1px dotted
+}
+ADDRESS {
+	FONT-STYLE: italic; MARGIN: 0px 0px 1.5em
+}
+DEL {
+	COLOR: #666
+}
+PRE {
+	MARGIN: 1.5em 0px
+}
+CODE {
+	MARGIN: 1.5em 0px
+}
+PRE {
+	FONT: 1em/1.5 'andale mono', 'lucida console', monospace
+}
+CODE {
+	FONT: 1em/1.5 'andale mono', 'lucida console', monospace
+}
+TT {
+	FONT: 1em/1.5 'andale mono', 'lucida console', monospace
+}
+UL {
+	LIST-STYLE-TYPE: disc
+}
+OL {
+	LIST-STYLE-TYPE: decimal
+}
+#content LI UL {
+	MARGIN: 0px 1.5em
+}
+#content LI OL {
+	MARGIN: 0px 1.5em
+}
+#content UL {
+	MARGIN: 0px 1.5em 1.5em
+}
+#content OL {
+	MARGIN: 0px 1.5em 1.5em
+}
+DL {
+	MARGIN: 0px 0px 1.5em
+}
+DL DT {
+	FONT-WEIGHT: bold
+}
+DD {
+	MARGIN-LEFT: 1.5em
+}
+#content TABLE {
+	WIDTH: 100%; MARGIN-BOTTOM: 1.4em
+}
+TH {
+	BACKGROUND: #c3d9ff; FONT-WEIGHT: bold
+}
+TH {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 5px; PADDING-RIGHT: 10px; PADDING-TOP: 4px
+}
+TD {
+	PADDING-BOTTOM: 4px; PADDING-LEFT: 5px; PADDING-RIGHT: 10px; PADDING-TOP: 4px
+}
+TR.even TD {
+	BACKGROUND: #e5ecf9
+}
+TFOOT {
+	FONT-STYLE: italic
+}
+CAPTION {
+	BACKGROUND: #eee
+}
+Misc classes -------------------------------------------------------------- .small {
+	LINE-HEIGHT: 1.87em; MARGIN-BOTTOM: 1.87em; FONT-SIZE: 0.8em
+}
+.large {
+	LINE-HEIGHT: 2.5em; MARGIN-BOTTOM: 1.25em; FONT-SIZE: 1.2em
+}
+.hide {
+	DISPLAY: none
+}
+.quiet {
+	COLOR: #666
+}
+.loud {
+	COLOR: #000
+}
+.highlight {
+	BACKGROUND: #ff0
+}
+.added {
+	BACKGROUND: #060; COLOR: #fff
+}
+.removed {
+	BACKGROUND: #900; COLOR: #fff
+}
+.first {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px
+}
+.last {
+	PADDING-RIGHT: 0px; MARGIN-RIGHT: 0px
+}
+.top {
+	MARGIN-TOP: 0px; PADDING-TOP: 0px
+}
+.bottom {
+	PADDING-BOTTOM: 0px; MARGIN-BOTTOM: 0px
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+ 	
+
+		
+ 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="jtmSessionFactory"/>
+    </bean>
+    
+    
+    
+    
+     <bean id="databaseUpdateInterceptor" class="vin.monitoring.core.hibernate.DatabaseUpdateInterceptor">
+        <property name="traceAttributeOnLoad" value="false"/>
+        <property name="traceAttributeOnUpdate" value="false"/>
+        <property name="traceAttributeOnSave" value="false"/>
+        <property name="traceAttributeOnDelete" value="false"/>
+        <property name="traceSqlStatement" value="false"/>
+        <property name="entityPatternList">
+            <list>
+                <value>vin.vms.dao.entities.*</value>
+            </list>
+        </property>     
+    </bean>
+    
+	<bean id="sessionFactoryForInterceptor" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="jtmDatasource"/>
+        <property name="annotatedClasses">
+            <list>            
+                <value>vin.vms.dao.entities.VehicleDetails</value>
+                <value>vin.vms.dao.entities.DriverDetails</value>
+                <value>vin.vms.dao.entities.BookingDetails</value>
+                <value>vin.vms.dao.entities.FuelDetails</value>
+                <value>vin.vms.dao.entities.MaintenanceDetails</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>                  
+            </props>
+        </property>
+    </bean>
+    
+	<bean id="jtmSessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="jtmDatasource"/>
+        <property name="entityInterceptor" ref="databaseUpdateInterceptor"/>
+        <property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration"/>
+        <property name="annotatedClasses">
+            <list>            
+                <value>vin.vms.dao.entities.VehicleDetails</value>
+                <value>vin.vms.dao.entities.DriverDetails</value>
+                <value>vin.vms.dao.entities.BookingDetails</value>
+                <value>vin.vms.dao.entities.FuelDetails</value>
+                <value>vin.vms.dao.entities.MaintenanceDetails</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>                  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+    
+      <!-- <bean id="jtmDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >     
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://198.38.82.101:3306/vijay627_vms"/>
+        <property name="username" value="vijay627_admin"/>
+        <property name="password" value="vasu1627"/>        
+    </bean>-->
+    
+     <bean id="jtmDatasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >     
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/vms"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>        
+    </bean>
+    
+    
+</beans>

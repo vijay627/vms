@@ -1,0 +1,75 @@
+UL.jcarousel-list {
+	MARGIN: 0px
+}
+.jcarousel-container {
+	Z-INDEX: 1; PADDING-BOTTOM: 6px; MARGIN: 0px auto; PADDING-LEFT: 36px; WIDTH: 798px; PADDING-RIGHT: 36px; BACKGROUND: url(/images/slider/projects_slider_bg.gif) no-repeat center 50%; PADDING-TOP: 6px
+}
+.home .jcarousel-container {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 830px; PADDING-RIGHT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; FLOAT: right; PADDING-TOP: 0px
+}
+.jcarousel-clip {
+	WIDTH: 798px; HEIGHT: 106px
+}
+.home .jcarousel-clip {
+	WIDTH: 830px; HEIGHT: 35px
+}
+.jcarousel-list {
+	MARGIN: 0px auto; WIDTH: 746px; HEIGHT: 106px
+}
+.home .jcarousel-list {
+	WIDTH: 830px
+}
+.jcarousel-list LI {
+	PADDING-BOTTOM: 0px; TEXT-TRANSFORM: uppercase; PADDING-LEFT: 8px; WIDTH: 176px; PADDING-RIGHT: 8px; BACKGROUND: #f4f4f4; HEIGHT: 100px; FONT-SIZE: 11px; MARGIN-RIGHT: 10px; PADDING-TOP: 6px
+}
+.home .jcarousel-list LI {
+	PADDING-BOTTOM: 0px; TEXT-TRANSFORM: none; PADDING-LEFT: 5px; WIDTH: 825px; PADDING-RIGHT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 29px; FONT-SIZE: 12px; PADDING-TOP: 5px
+}
+.jcarousel-list A {
+	COLOR: #696969; TEXT-DECORATION: none
+}
+.home .jcarousel-list A {
+	COLOR: #808080; TEXT-DECORATION: none
+}
+.home .jcarousel-list A:hover {
+	COLOR: #666; TEXT-DECORATION: underline
+}
+.jcarousel-list A SPAN {
+	MARGIN-TOP: -1px; FLOAT: left
+}
+.jcarousel-list A IMG {
+	BORDER-BOTTOM-STYLE: none; PADDING-BOTTOM: 0px; BORDER-RIGHT-STYLE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none; PADDING-TOP: 0px
+}
+.jcarousel-item-placeholder {
+	BACKGROUND: url(/images/slider/jcarousel_loading.gif) no-repeat 50% 50%
+}
+.jcarousel-next-horizontal {
+	POSITION: absolute; WIDTH: 26px; BACKGROUND: url(/images/slider/projects_right.gif) no-repeat 0px 0px; HEIGHT: 118px; TOP: 0px; CURSOR: pointer; RIGHT: 0px
+}
+.jcarousel-next-horizontal:hover {
+	BACKGROUND-POSITION: 0px -118px
+}
+.jcarousel-next-disabled-horizontal {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}
+.jcarousel-next-disabled-horizontal:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}
+.jcarousel-next-disabled-horizontal:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}
+.jcarousel-prev-horizontal {
+	POSITION: absolute; WIDTH: 26px; BACKGROUND: url(/images/slider/projects_left.gif) no-repeat 0px 0px; HEIGHT: 118px; TOP: 0px; CURSOR: pointer; LEFT: 0px
+}
+.jcarousel-prev-horizontal:hover {
+	BACKGROUND-POSITION: 0px -118px
+}
+.jcarousel-prev-disabled-horizontal {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}
+.jcarousel-prev-disabled-horizontal:hover {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}
+.jcarousel-prev-disabled-horizontal:active {
+	BACKGROUND: none transparent scroll repeat 0% 0%; CURSOR: default
+}

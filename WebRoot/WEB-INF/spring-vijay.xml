@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:lang="http://www.springframework.org/schema/lang"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager" ref="transactionManager" />
+	</bean>
+	
+	<bean id="hibernateSupport"	class="org.springframework.orm.hibernate3.support.HibernateDaoSupport" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="hibernateSupportForInterceptor"	class="org.springframework.orm.hibernate3.support.HibernateDaoSupport" abstract="true">
+		<property name="sessionFactory" ref="sessionFactoryForInterceptor" />
+	</bean>
+	
+	<bean id="transactionManager"
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+     <!-- creates a hibernate 3 session factory that reads annotated classes -->
+    <bean id="sessionFactoryForInterceptor"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="jndiCasDatasource" />
+        <property name="lobHandler">
+            <ref local="oracleLobHandler"/>
+        </property>
+        
+        <property name="annotatedClasses">
+            <list>            
+                <value>vin.jtm.dao.entities.JtmTestDetails</value>
+                <value>vin.jtm.dao.entities.JtmSectionDetails</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle8iDialect</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+                <prop key="hibernate.show.sql">true</prop>
+                <prop key="hibernate.bytecode.provider">cglib</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="jndiCasDatasource" />
+        <property name="lobHandler">
+            <ref local="oracleLobHandler"/>
+        </property>        
+        <property name="annotatedClasses">
+            <list>
+                <value>vin.jtm.dao.entities.JtmTestDetails</value>
+                <value>vin.jtm.dao.entities.JtmSectionDetails</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+      			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
+                <prop key="hibernate.show.sql">true</prop>
+                <prop key="hibernate.bytecode.provider">cglib</prop>
+                <prop key="hibernate.cache.use_second_level_cache">false</prop> 
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+            </props>
+        </property>  
+    </bean>
+
+    <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" lazy-init="true"/>
+  
+    <bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+        
+    
+    
+    <!-- JNDI DATASOURCES -->
+
+    <bean id="jndiCasDatasource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="jdbc/CasDatasource" />
+        <property name="resourceRef" value="true" /> 
+        <property name="defaultObject" ref="casDatasource" />
+    </bean>
+    
+   
+    <!-- DATASOURCES -->
+    
+    <bean id="casDatasource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close">     
+
+         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/jtmp" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />        
+        <property name="maxActive" value="-1" />         
+        
+        <property name="initialSize" value="1" />        
+        <property name="testOnBorrow" value="true" />        
+        <property name="testWhileIdle" value="true" />        
+        <property name="validationQuery" value="SELECT * FROM DUAL" />        
+    </bean>
+    
+
+	<bean id="mockTestDetailsDao" class="vin.jtm.dao.mocktest.MockTestDetailsDaoImpl" parent="hibernateSupport" />	
+    
+</beans>

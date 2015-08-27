@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr" 
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.directwebremoting.org/schema/spring-dwr http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"> 
+	    
+     <bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+		<property name="prefix">
+			<value>/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+         <props> 
+            <prop key="/vehicle.spr">vehicleCommandController</prop>
+            <prop key="/driver.spr">driverCommandController</prop>
+            <prop key="/booking.spr">bookingCommandController</prop>
+            <prop key="/fuel.spr">fuelCommandController</prop>
+            <prop key="/maintenance.spr">maintenanceCommandController</prop>
+          </props>
+       </property>
+     </bean>	
+	
+	
+</beans>

@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="vehicle.VehicleServiceCommand" class="vin.vms.command.vehicle.VehicleServiceCommand">
+        <property name="vehicleDetailsDao" ref="vehicleDetailsDao"/>
+    </bean>
+    
+    <bean id="vehicle.DriverServiceCommand" class="vin.vms.command.vehicle.DriverServiceCommand">
+        <property name="driverDetailsDao" ref="driverDetailsDao"/>
+    </bean>
+    
+    <bean id="vehicle.BookingServiceCommand" class="vin.vms.command.vehicle.BookingServiceCommand">
+        <property name="bookingDetailsDao" ref="bookingDetailsDao"/>
+    </bean>
+    
+    <bean id="vehicle.FuelServiceCommand" class="vin.vms.command.vehicle.FuelServiceCommand">
+        <property name="fuelDetailsDao" ref="fuelDetailsDao"/>
+    </bean>
+    
+    <bean id="vehicle.MaintenanceServiceCommand" class="vin.vms.command.vehicle.MaintenanceServiceCommand">
+        <property name="maintenanceDetailsDao" ref="maintenanceDetailsDao"/>
+    </bean>
+    
+    
+	
+</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+    
+<dwr>
+	
+    <allow>
+		<convert converter="bean" match="vin.vms.dao.entities.VehicleDetails" />
+		<convert converter="bean" match="vin.vms.dao.entities.DriverDetails" />
+    	<convert converter="bean" match="vin.vms.dao.entities.BookingDetails" />
+    	<convert converter="bean" match="vin.vms.dao.entities.FuelDetails" />
+    	<convert converter="bean" match="vin.vms.dao.entities.MaintenanceDetails" />
+
+		
+    	<create creator="spring" javascript="VmsDwrUtilities" scope="page">
+        	<param name="beanName" value="vmsDwrUtilities" />
+        </create>
+        
+    	
+         
+		          
+    </allow>
+    
+</dwr>

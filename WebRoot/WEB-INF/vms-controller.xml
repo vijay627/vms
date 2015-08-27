@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+     
+    <bean id="abstractVmsCommandController" class="vin.vms.web.controller.AbstractVmsCommandController" abstract="true">
+      <property name="commandExecutor" ref="commandExecutor"/>
+      <property name="systemErrorView" value="SystemError"/>
+      <property name="successView" value="successpage"/>
+   </bean>
+   
+	<bean id="vehicleCommandController" class="vin.vms.web.controller.ListController">
+		<property name="controllers">
+			<list>
+					
+				<bean class="vin.vms.web.controller.VehicleCommandController" parent="abstractVmsCommandController">
+					<property name="commandName" value="vehicleCommand" />
+					<property name="commandClass" value="vin.vms.web.command.vehicle.VehicleCommand" />
+					<property name="inputFormView" value="vehicle" />
+				</bean> 
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="driverCommandController" class="vin.vms.web.controller.ListController">
+		<property name="controllers">
+			<list>
+					
+				<bean class="vin.vms.web.controller.DriverCommandController" parent="abstractVmsCommandController">
+					<property name="commandName" value="driverCommand" />
+					<property name="commandClass" value="vin.vms.web.command.vehicle.DriverCommand" />
+					<property name="inputFormView" value="driver" />
+				</bean> 
+			</list>
+		</property>
+	</bean>
+	  
+		<bean id="bookingCommandController" class="vin.vms.web.controller.ListController">
+		<property name="controllers">
+			<list>
+					
+				<bean class="vin.vms.web.controller.BookingCommandController" parent="abstractVmsCommandController">
+					<property name="commandName" value="bookingCommand" />
+					<property name="commandClass" value="vin.vms.web.command.vehicle.BookingCommand" />
+					<property name="inputFormView" value="booking" />
+				</bean> 
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="fuelCommandController" class="vin.vms.web.controller.ListController">
+		<property name="controllers">
+			<list>
+					
+				<bean class="vin.vms.web.controller.FuelCommandController" parent="abstractVmsCommandController">
+					<property name="commandName" value="fuelCommand" />
+					<property name="commandClass" value="vin.vms.web.command.vehicle.FuelCommand" />
+					<property name="inputFormView" value="fuel" />
+				</bean> 
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="maintenanceCommandController" class="vin.vms.web.controller.ListController">
+		<property name="controllers">
+			<list>
+					
+				<bean class="vin.vms.web.controller.MaintenanceCommandController" parent="abstractVmsCommandController">
+					<property name="commandName" value="maintenanceCommand" />
+					<property name="commandClass" value="vin.vms.web.command.vehicle.MaintenanceCommand" />
+					<property name="inputFormView" value="maintenance" />
+				</bean> 
+			</list>
+		</property>
+	</bean>   
+	
+	
+	
+	   	
+	
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="hl"/>
+	</bean>	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+	
+		
+</beans>

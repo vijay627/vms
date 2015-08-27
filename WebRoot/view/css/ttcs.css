@@ -1,0 +1,149 @@
+h2 + table.list { margin-top: -5px}
+
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small; 
+	font-weight: bold;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+table.list {
+ border: 1px solid #6C93D5;
+ empty-cells: show;
+ border-collapse: collapse;
+ text-align:left;
+}
+
+table.list tr.lh {
+ background-color: #F2F5FA;
+}
+
+
+table.list tr.lh2 {
+ color: #4C73B5;
+ background-color: #CCD7EA;
+ border-bottom: 1px solid #6C93D5;
+}
+
+
+table.list th {
+ font-family:verdana;
+ font-weight:normal;
+ border-bottom: 1px solid #6C93D5;
+ padding-left: 5px;
+ padding-right: 5px;
+}
+
+table.list tr.nb th { border-bottom:none;}
+
+table.list tr.ld, table.list tr{
+ background-color: #F2F5FA;
+}
+
+table.list tr.ld2 {
+ color: #4C73B5;
+ background-color: #CCD7EA;
+}
+
+table.list td {
+ padding-left: 5px;
+ padding-right: 5px;
+}
+
+input, select, textarea {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 12px; font-weight: normal; 
+	background-color: #FFFFFF; border: 1 solid #53B4E2; 
+	border-width: 1px; border-style: solid; border-color: #53B4E2;
+	margin-top: 10;
+	height: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+input.txtField{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	font-size: 12px; font-weight: normal; 
+	background-color: #FFFFFF; border: 1 solid #53B4E2; 
+	border-width: 0px; border-style: solid; border-color: #53B4E2;
+	margin-top: 10;
+	
+}
+
+a img{
+	border:0px;
+}
+
+img.btn{
+	cursor:pointer;
+	border:0px;
+}
+
+
+
+
+
+.odd{background-color: lightblue;} 
+.even{background-color: #FFFFFF;}
+
+.correct{background-color: #00CC66;height: 20;} 
+.wrong{background-color: #FF6A51;height: 20}
+
+.changecolor{background-color: #00FFFF;} 
+.resetcolor{background-color: ;}
+
+.lastrow{background-color: #00CC66;height: 30; font-size: 1em} 
+
+.subhd{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small; color: #7a06ff; font-weight: bold;
+	margin-bottom:5px;
+	margin-left:40%;
+	margin-top:15px;
+}
+
+table.labelandfield{
+	font-family: verdana;
+	font-size: 12px;
+}
+
+table.labelandfield td.lbl{ 
+}
+
+table.labelandfield td.lblLoop{ 
+    width: 300px;
+}
+
+table.labelandfield td.fld{
+padding-left:10px;
+padding-right:10px;
+}
+
+table.multicolumn{
+
+}
+
+.lbl
+{
+	font-family: Verdana;
+	font-size: 12px;
+	padding-left: 50px;;
+	width: 25%;
+}
+
+.section
+{
+	border: 1px solid #6C93D5;width: 100%;padding-bottom: 10px;
+	background-color: white;
+	margin-top: -7px;
+	
+	border-radius: 40px 70px 20px 50px;
+    -moz-border-radius: 40px 70px 20px 50px;
+    -webkit-border-top-left-radius:40px;
+    -webkit-border-top-right-radius:70px;
+    -webkit-border-bottom-right-radius: 20px;
+    -webkit-border-bottom-left-radius: 50px;
+}

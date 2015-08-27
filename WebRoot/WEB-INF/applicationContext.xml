@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+	
+	<!-- ======================================================================================== -->
+    <!-- IMPORT OF APPLICATION PROPERTIES                                                         -->
+    <!-- ======================================================================================== -->
+    <!--  Property resource configurer that resolves placeholders in bean property values of context definitions. -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:coreApplicationContext.properties</value>
+            </list>
+        </property>
+    </bean>
+
+	<bean id="vin.monitoring.core.performance.PerformanceInterceptor" class="vin.monitoring.core.performance.PerformanceInterceptor">
+		<property name="performanceContext">
+			<ref bean="vin.monitoring.core.performance.PerformanceContext" />
+		</property>
+	</bean>
+
+	<bean id="vin.monitoring.core.performance.PerformanceContext" class="vin.monitoring.core.performance.PerformanceContext">
+	</bean>
+	
+     <!-- ======================================================================================== -->
+    <!-- PERFORMANCE MONITORING                                                                   -->
+    <!-- ======================================================================================== -->
+    <!-- Auto proxy implementation that wraps each eligible bean with an AOP proxy, delegating to -->
+    <!-- specified interceptors before invoking the bean itself. Beans to proxy are identified    -->
+    <!-- via a list of names. Checks for direct, "xxx*", and "*xxx" matches.                      --> 
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Dao*</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>vin.monitoring.core.performance.PerformanceInterceptor</value>
+            </list>
+        </property>
+    </bean>
+  
+    <alias alias="commandExecutor" name="commandExecutorLocal" />
+
+    <bean id="commandExecutorLocal" class="vin.vms.commons.CommandExecutor" />
+
+   
+</beans>
